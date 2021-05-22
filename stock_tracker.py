@@ -1,10 +1,14 @@
+import wifiCfg
 from m5stack import *
 from m5ui import *
 from uiflow import *
 import urequests as requests
 from time import sleep
-
+import network, machine
 setScreenColor(0x111111)
+
+#wifiCfg.autoConnect()
+wifiCfg.doConnect('@@@', '@@@')
 
 
 def gold_price_api():
@@ -19,10 +23,10 @@ def gold_price_api():
 def btc_price_api():
     btc_price = "https://api.thingspeak.com/apps/thinghttp/send_request?api_key=QH0XOAJSY3ZN8KP7"
     response = requests.get(btc_price).text
-    btc_price = response.split(" ")[:2]
-    label0 = M5TextBox(127, 67, "BitCoin", lcd.FONT_DejaVu40, 0xffd11a, rotate=90)
-    label1 = M5TextBox(75, 10, btc_price, lcd.FONT_DejaVu40, 0xFFFFFF, rotate=90)
-    label2 = M5TextBox(25, 75, "usd", lcd.FONT_DejaVu24, 0xFFFFFF, rotate=90)
+    btc_price = response.replace("USD", "")
+    label0 = M5TextBox(127, 60, "BitCoin", lcd.FONT_DejaVu40, 0xffd11a, rotate=90)
+    label1 = M5TextBox(75, 5, btc_price, lcd.FONT_DejaVu40, 0xFFFFFF, rotate=90)
+    label2 = M5TextBox(25, 85, "usd", lcd.FONT_DejaVu24, 0xFFFFFF, rotate=90)
 
 
 while True:
