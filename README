@@ -1,0 +1,18 @@
+m5-stick-C-stock-price-tracker
+
+micropython libraries:
+wifiCfg
+urequests
+time
+network
+machine
+
+you can use m5 stick c plus as stock tracker
+I created my own api by thingspeak.com website
+as css selector parser.
+
+Micropython 1.12
+uiflow v1.7.7 plus
+
+Link to project
+https://github.com/m5stack
