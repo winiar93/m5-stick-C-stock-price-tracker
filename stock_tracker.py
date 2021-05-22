@@ -32,7 +32,7 @@ def btc_price_api():
 while True:
     gold_price_api()
     time.sleep(30)
-    setScreenColor(0x111111)
+    lcd.clear()
     btc_price_api()
     time.sleep(30)
-    setScreenColor(0x111111)
+    lcd.clear()
